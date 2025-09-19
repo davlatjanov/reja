@@ -13,7 +13,6 @@
   height: 1312px;
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
   margin-top: 2px;
   /* background-color: #f7f6b9; */
 }
@@ -83,8 +82,8 @@
 .left-icons {
   position: relative;
   display: flex;
-  align-items: center; /* Centers icons vertically */
-  justify-content: space-between; /* Distributes icons evenly */
+  align-items: center;
+  justify-content: space-between;
   flex-direction: row;
   width: 238px;
   margin-top: 19px;

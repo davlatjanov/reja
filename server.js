@@ -1,5 +1,4 @@
 console.log("Running the web server");
-const { setDefaultResultOrder } = require("dns");
 const express = require("express");
 const app = express();
 const http = require("http");
@@ -33,9 +32,11 @@ app.post("/create-item", (req, res) => {
 app.get("/", function (req, res) {
   res.render("harid");
 });
+
 app.get("/author", function (req, res) {
   res.render("author", { user: user });
 });
+
 const server = http.createServer(app);
 let PORT = 3004;
 
