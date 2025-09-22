@@ -30,7 +30,7 @@ app.post("/create-item", (req, res) => {
   res.json({ test: "Success" });
 });
 app.get("/", function (req, res) {
-  res.render("harid");
+  res.render("reja");
 });
 
 app.get("/author", function (req, res) {

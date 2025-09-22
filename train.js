@@ -1,5 +1,27 @@
 //TASK A
 
+//  ⭐️ Synchronous function vs Asynchronous function
+// Asynchronous: CALLBACK
+
+// DEFINE
+function qoldiqliBolish(a, b, callback) {
+  if (b === 0) {
+    callback("Mahraj nolga teng bolmaydi", null);
+  } else {
+    const c = a % b;
+    callback(null, c);
+  }
+}
+
+// CALL
+qoldiqliBolish(5, 3, (err, data) => {
+  if (err) console.log("ERROR:", err);
+  else {
+    console.log("data:", data);
+    console.log("MATIQLAR ...");
+  }
+});
+
 const letterInWord = (a, word) => {
   const count = word.split("").filter((letter) => letter === a).length;
   console.log(count);
