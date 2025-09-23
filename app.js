@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const http = require("http");
 const fs = require("fs");
+const data = require("./server");
 
 let user;
 fs.readFile("database/user.json", "utf8", (err, data) => {
@@ -27,11 +28,30 @@ app.set("view engine", "ejs");
 
 // 4 Routing
 app.post("/create-item", (req, res) => {
-  console.log(req.body);
-  res.json({ test: "Success" });
+  console.log("user entered /create-item ");
+
+  const reja = req.body.reja;
+  db.collection("plans").insertOne({ reja: reja }, (err, data) => {
+    if (err) {
+      console.log("ERROR", err);
+      res.end("something went wrong");
+    } else {
+      res.json({ test: "Success" });
+    }
+  });
 });
 app.get("/", function (req, res) {
-  res.render("reja");
+  console.log("user entered / ");
+  db.collection("plans")
+    .find()
+    .toArray((err, data) => {
+      if (err) {
+        console.log("ERROR:", err);
+        res.end("something went wrong");
+      } else {
+        res.render("reja", { items: data });
+      }
+    });
 });
 
 app.get("/author", function (req, res) {
