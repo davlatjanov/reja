@@ -1,33 +1,24 @@
-//TASK A
+// TASK B
 
-//  ⭐️ Synchronous function vs Asynchronous function
-// Asynchronous: CALLBACK
-
-// DEFINE
-function qoldiqliBolish(a, b, callback) {
-  if (b === 0) {
-    callback("Mahraj nolga teng bolmaydi", null);
+const numCount = (a) => {
+  if (typeof a === String) {
+    console.log("Please enter a string");
   } else {
-    const c = a % b;
-    callback(null, c);
+    const count = a.split("").filter((char) => !isNaN(Number(char))).length;
+    console.log(count);
   }
-}
-
-// CALL
-qoldiqliBolish(5, 3, (err, data) => {
-  if (err) console.log("ERROR:", err);
-  else {
-    console.log("data:", data);
-    console.log("MATIQLAR ...");
-  }
-});
-
-const letterInWord = (a, word) => {
-  const count = word.split("").filter((letter) => letter === a).length;
-  console.log(count);
 };
 
-letterInWord("a", "saloma");
+numCount("aeefsetw2g44gew");
+
+//TASK A
+
+// const letterInWord = (a, word) => {
+//   const count = word.split("").filter((letter) => letter === a).length;
+//   console.log(count);
+// };
+
+// letterInWord("a", "saloma");
 
 // console.log("Jack Ma maslahatlari");
 // const list = [
