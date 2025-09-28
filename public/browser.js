@@ -53,4 +53,39 @@ document.addEventListener("click", function (e) {
         .catch((err) => console.log("Please try again", err));
     }
   }
+
+  if (e.target.classList.contains("edit-me")) {
+    let userInput = prompt(
+      "Please insert a change",
+      e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
+    );
+    if (userInput) {
+      axios
+        .post("/edit-item", {
+          id: e.target.getAttribute("data-id"),
+          new_input: userInput,
+        })
+        .then((response) => {
+          console.log("Response", response.data);
+          e.target.parentElement.parentElement.querySelector(
+            ".item-text"
+          ).innerHTML = userInput;
+        })
+        .catch((err) => {
+          console.log("Please try again");
+        });
+    }
+  }
+});
+
+document.getElementById("clean-all").addEventListener("click", function () {
+  if (confirm("Are you sure???")) {
+    axios
+      .post("/delete-all", { delete_all: true })
+      .then((response) => {
+        alert(response.data.state);
+        document.location.reload();
+      })
+      .catch();
+  }
 });
