@@ -1,15 +1,31 @@
-// TASK B
-
-const numCount = (a) => {
-  if (typeof a === String) {
-    console.log("Please enter a string");
+// TASK C
+const compareStrings = (word1, word2) => {
+  if (typeof word1 !== "string" && typeof word2 !== "string") {
+    console.log("ERROR PLEASE INSERT A STRING");
+  }
+  const a = word1.split("").sort();
+  const b = word2.split("").sort();
+  if (b.length !== a.length) {
+    console.log(false);
   } else {
-    const count = a.split("").filter((char) => !isNaN(Number(char))).length;
-    console.log(count);
+    console.log(true);
   }
 };
 
-numCount("aeefsetw2g44gew");
+compareStrings("1salomlra", "salomlar1");
+
+// TASK B
+
+// const numCount = (a) => {
+//   if (typeof a === String) {
+//     console.log("Please enter a string");
+//   } else {
+//     const count = a.split("").filter((char) => !isNaN(Number(char))).length;
+//     console.log(count);
+//   }
+// };
+
+// numCount("aeefsetw2g44gew");
 
 //TASK A
 

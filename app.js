@@ -32,12 +32,7 @@ app.post("/create-item", (req, res) => {
 
   const reja = req.body.reja;
   db.collection("plans").insertOne({ reja: reja }, (err, data) => {
-    if (err) {
-      console.log("ERROR", err);
-      res.end("something went wrong");
-    } else {
-      res.json({ test: "Success" });
-    }
+    res.json(data.ops[0]);
   });
 });
 app.get("/", function (req, res) {
