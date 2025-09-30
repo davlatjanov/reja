@@ -1,18 +1,82 @@
-// TASK C
-const compareStrings = (word1, word2) => {
-  if (typeof word1 !== "string" && typeof word2 !== "string") {
-    console.log("ERROR PLEASE INSERT A STRING");
-  }
-  const a = word1.split("").sort();
-  const b = word2.split("").sort();
-  if (b.length !== a.length) {
-    console.log(false);
-  } else {
-    console.log(true);
-  }
-};
+// TASK D
 
-compareStrings("1salomlra", "salomlar1");
+const moment = require("moment");
+
+class Shop {
+  constructor(bread, steak, juice) {
+    this.products = {
+      bread,
+      steak,
+      juice,
+    };
+  }
+
+  getTime() {
+    return moment().format("HH:mm");
+  }
+
+  stock() {
+    console.log(
+      `At ${this.getTime()} we have ${this.products.bread} bread, ${
+        this.products.steak
+      } steak, and ${this.products.juice} juice available!`
+    );
+  }
+
+  sell(item, qty) {
+    if (this.products[item] === undefined) {
+      console.log(`We don't sell ${item}.`);
+      return;
+    }
+    if (this.products[item] < qty) {
+      console.log(`Not enough ${item} to sell.`);
+      return;
+    }
+    this.products[item] -= qty;
+    console.log(
+      `At ${this.getTime()} sold ${qty} ${item}(s). Remaining: ${
+        this.products[item]
+      }.`
+    );
+  }
+
+  receive(item, qty) {
+    if (this.products[item] === undefined) {
+      console.log(`We don't accept ${item}.`);
+      return;
+    }
+    this.products[item] += qty;
+    console.log(
+      `At ${this.getTime()} received ${qty} ${item}(s). Now we have: ${
+        this.products[item]
+      }.`
+    );
+  }
+}
+
+const shop = new Shop(4, 3, 6);
+
+shop.stock();
+
+shop.sell("bread", 2);
+shop.receive("juice", 5);
+shop.stock();
+
+// TASK C
+// const compareStrings = (word1, word2) => {
+//   if (typeof word1 !== "string" && typeof word2 !== "string") {
+//     console.log("ERROR PLEASE INSERT A STRING");
+//   }
+//   const a = word1.split("").sort();
+//   const b = word2.split("").sort();
+//   if (b.length !== a.length) {
+//     console.log(false);
+//   } else {
+//     console.log(true);
+//   }
+// };
+
+// compareStrings("1salomlra", "salomlar1");
 
 // TASK B
 
