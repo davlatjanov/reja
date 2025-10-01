@@ -47,12 +47,12 @@ app.post("/delete-item", (req, res) => {
 });
 
 app.post("/edit-item", (req, res) => {
-  const { data, id } = req.body;
+  const newInput = req.body;
   db.collection("plans").findOneAndUpdate(
     {
-      _id: new mongodb.ObjectId(id),
+      _id: new mongodb.ObjectId(newInput.id),
     },
-    { $set: { reja: data } },
+    { $set: { reja: newInput.new_input } },
     (err, data) => {
       res.json({ state: "success" });
     }
