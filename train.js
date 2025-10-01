@@ -1,66 +1,76 @@
-// TASK D
-
-const moment = require("moment");
-
-class Shop {
-  constructor(bread, steak, juice) {
-    this.products = {
-      bread,
-      steak,
-      juice,
-    };
+// TASK E
+const getReverse = (word) => {
+  if (typeof word !== "string") {
+    console.log("Please insert a string");
   }
+  const reverse = word.split("").reverse().join("");
+  console.log(reverse);
+};
+getReverse("hello");
 
-  getTime() {
-    return moment().format("HH:mm");
-  }
+// // TASK D
 
-  stock() {
-    console.log(
-      `At ${this.getTime()} we have ${this.products.bread} bread, ${
-        this.products.steak
-      } steak, and ${this.products.juice} juice available!`
-    );
-  }
+// const moment = require("moment");
 
-  sell(item, qty) {
-    if (this.products[item] === undefined) {
-      console.log(`We don't sell ${item}.`);
-      return;
-    }
-    if (this.products[item] < qty) {
-      console.log(`Not enough ${item} to sell.`);
-      return;
-    }
-    this.products[item] -= qty;
-    console.log(
-      `At ${this.getTime()} sold ${qty} ${item}(s). Remaining: ${
-        this.products[item]
-      }.`
-    );
-  }
+// class Shop {
+//   constructor(bread, steak, juice) {
+//     this.products = {
+//       bread,
+//       steak,
+//       juice,
+//     };
+//   }
 
-  receive(item, qty) {
-    if (this.products[item] === undefined) {
-      console.log(`We don't accept ${item}.`);
-      return;
-    }
-    this.products[item] += qty;
-    console.log(
-      `At ${this.getTime()} received ${qty} ${item}(s). Now we have: ${
-        this.products[item]
-      }.`
-    );
-  }
-}
+//   getTime() {
+//     return moment().format("HH:mm");
+//   }
 
-const shop = new Shop(4, 3, 6);
+//   stock() {
+//     console.log(
+//       `At ${this.getTime()} we have ${this.products.bread} bread, ${
+//         this.products.steak
+//       } steak, and ${this.products.juice} juice available!`
+//     );
+//   }
 
-shop.stock();
+//   sell(item, qty) {
+//     if (this.products[item] === undefined) {
+//       console.log(`We don't sell ${item}.`);
+//       return;
+//     }
+//     if (this.products[item] < qty) {
+//       console.log(`Not enough ${item} to sell.`);
+//       return;
+//     }
+//     this.products[item] -= qty;
+//     console.log(
+//       `At ${this.getTime()} sold ${qty} ${item}(s). Remaining: ${
+//         this.products[item]
+//       }.`
+//     );
+//   }
 
-shop.sell("bread", 2);
-shop.receive("juice", 5);
-shop.stock();
+//   receive(item, qty) {
+//     if (this.products[item] === undefined) {
+//       console.log(`We don't accept ${item}.`);
+//       return;
+//     }
+//     this.products[item] += qty;
+//     console.log(
+//       `At ${this.getTime()} received ${qty} ${item}(s). Now we have: ${
+//         this.products[item]
+//       }.`
+//     );
+//   }
+// }
+
+// const shop = new Shop(4, 3, 6);
+
+// shop.stock();
+
+// shop.sell("bread", 2);
+// shop.receive("juice", 5);
+// shop.stock();
 
 // TASK C
 // const compareStrings = (word1, word2) => {

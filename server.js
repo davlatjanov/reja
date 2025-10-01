@@ -16,7 +16,7 @@ mongodb.connect(
       module.exports = data;
       const app = require("./app");
       const server = http.createServer(app);
-      let PORT = 3004;
+      let PORT = 3001;
 
       server.listen(PORT, function () {
         console.log(
